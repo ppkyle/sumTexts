@@ -24,20 +24,23 @@ public class Text {
         int x=s.indexOf("证书级别：");
         if( x>0 ){
             String a= s.substring(x+5,x+6);
-            switch(a
-                    ){
-                case Constants.LevelA:
-                    return 3;
-                case Constants.LevelB:
-                    return 2;
-                case Constants.LevelC:
-                    return 1;
-                case Constants.LevelWU:
-                    return 0;
-                default:
-                    System.out.println("Error: LevelError:"+a+"----->"+s);
-                    break;
-
+            if(a.compareTo(Constants.LevelA) == 0 ) {
+                //System.out.println("Right:"+a+"----->"+s);
+                return 3;
+            }else
+            if(a.compareTo(Constants.LevelB) == 0){
+               // System.out.println("Right:"+a+"----->"+s);
+                return 2;
+            }else
+            if(a.compareTo(Constants.LevelC) == 0) {
+              //  System.out.println("Right:"+a+"----->"+s);
+                return 1;
+            }else
+            if(a.compareTo(Constants.LevelWU) == 0) {
+               // System.out.println("Right:"+a+"----->"+s);
+                return 0;
+            }else{
+                    System.out.println("Error: LevelError:"+a+a.compareTo(Constants.LevelA)+"----->"+s);
             }
         }
         return 0;

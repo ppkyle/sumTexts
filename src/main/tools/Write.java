@@ -86,8 +86,8 @@ public class Write {
             int count = 0;
 
             for (Text t : arrayList) {
-                ArrayList<Integer> location = new ArrayList<>();
-                ArrayList<String> juzis = new ArrayList<>();
+                ArrayList<Integer> location = new ArrayList<Integer>();
+                ArrayList<String> juzis = new ArrayList<String>();
                 int x = t.data[4].indexOf(word);
                 while (x != -1) {
                     count++;

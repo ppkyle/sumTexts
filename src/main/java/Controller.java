@@ -15,7 +15,7 @@ public class Controller {
         for (int i = 0; i < 12; i++) {
             textlists.put(45 + i * 5, new ArrayList<Text>());
         }
-        wordList =new ArrayList<>();
+        wordList =new ArrayList<String>();
         wordmap = new HashMap<String, ArrayList<Integer>>() ;
     }
 
@@ -30,6 +30,9 @@ public class Controller {
         if((t.score>=80) && (t.level>1)){
             textlists.get(new Integer(t.score)).add(t);
         }
+
+           // textlists.get(new Integer(t.score)).add(t);
+
     }
 
     public void addtextlower50(Text t){
@@ -48,8 +51,15 @@ public class Controller {
     public void run(String p) {
         String path;
         for(int i=50; i<105; i+=5) {
-           // path =p+ "/记对我影响最大的一个人/成绩"+i+"分的语料";
-            path =p+ "/绿色食品与健康/成绩"+i+"分的语料";
+           // path =p+ "/记对我影响最大的一个人（韩国）不卡证书/成绩"+i+"分的语料";
+            //path =p+ "/绿色食品与健康（韩国）不卡证书/成绩"+i+"分的语料";
+            //path =p+ "/绿色食品与健康（韩国）/成绩"+i+"分的语料";
+            //path =p+ "/记对我影响最大的一个人（韩国）不卡证书/成绩"+i+"分的语料";
+           // path =p+ "/记对我影响最大的一个人（韩国）/成绩"+i+"分的语料";
+           //path =p+ "/绿色食品与健康（日本）/成绩"+i+"分的语料";
+           // path =p+ "/绿色食品与健康（日本）不卡证书/成绩"+i+"分的语料";
+            path =p+ "/记对我影响最大的一个人（日本）/成绩"+i+"分的语料";
+             //path =p+ "/记对我影响最大的一个人（日本）不卡证书/成绩"+i+"分的语料";
             Write.creatFileCollection(path);
             //Write.test(path);
             for(String word: wordList) {
@@ -59,9 +69,23 @@ public class Controller {
             System.out.println("finish!");
         }
 
-        Write.outCount(wordmap,p+"/绿色食品与健康");
+       // Write.outCount(wordmap,p+"/绿色食品与健康（韩国）");
+        //Write.outCount(wordmap,p+"/记对我影响最大的一个人（韩国）");
+        //Write.outCount(wordmap,p+"/绿色食品与健康（日本）");
+        //Write.outCount(wordmap,p+"/绿色食品与健康（韩国）不卡证书");
+       // Write.outCount(wordmap,p+"/绿色食品与健康（日本）不卡证书");
+        Write.outCount(wordmap,p+"/记对我影响最大的一个人（日本）");
+        //Write.outCount(wordmap,p+"/记对我影响最大的一个人（韩国）不卡证书");
+       // Write.outCount(wordmap,p+"/记对我影响最大的一个人（日本）不卡证书");
         //Write.outCount(wordmap,p+"/记对我影响最大的一个人");
-        Write.ABCout(textlists,p+"/绿色食品与健康");
+      //  Write.ABCout(textlists,p+"/绿色食品与健康（韩国）");
+         // Write.ABCout(textlists,p+"/绿色食品与健康（日本）");
+        //Write.ABCout(textlists,p+"/绿色食品与健康（韩国）不卡证书");
+        //Write.ABCout(textlists,p+"/绿色食品与健康（日本）不卡证书");
+          //Write.ABCout(textlists,p+"/记对我影响最大的一个人（韩国）");
+         Write.ABCout(textlists,p+"/记对我影响最大的一个人（日本）");
+        //Write.ABCout(textlists,p+"/记对我影响最大的一个人（韩国）不卡证书");
+        //Write.ABCout(textlists,p+"/记对我影响最大的一个人（日本）不卡证书");
        // Write.ABCout(textlists,p+"/记对我影响最大的一个人");
 
     }
@@ -73,10 +97,15 @@ public class Controller {
     }
 
     public void addWordList(ArrayList<String> wordlist) {
-        wordList.addAll(wordlist);
-        for(String word: wordList){
-            wordmap.put(word, new ArrayList<Integer>());
-            System.out.println("word!!!!"+word);
+        for(String word:wordlist) {
+            if( word.compareTo("")!=0) {
+                //wordList.addAll(wordlist);
+                wordList.add(word);
+
+                    wordmap.put(word, new ArrayList<Integer>());
+                    System.out.println("word!!!!" + word);
+
+            }
         }
     }
 }
