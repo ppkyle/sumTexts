@@ -231,9 +231,11 @@ public class Write {
                 runText.setText(word + "出现次数：");
                 int j = 50;
                 for (Integer i : wordmap.get(word)) {
-                    XWPFParagraph countparagraph2 = document.createParagraph();
-                    XWPFRun runText2 = countparagraph2.createRun();
-                    runText2.setText("在成绩" + j + "分的文章中出现次数：" + i);
+                    if(i!=0) {
+                        XWPFParagraph countparagraph2 = document.createParagraph();
+                        XWPFRun runText2 = countparagraph2.createRun();
+                        runText2.setText("在成绩" + j + "分的文章中出现次数：" + i);
+                    }
                     j += 5;
                 }
             }
